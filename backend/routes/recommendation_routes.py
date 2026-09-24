@@ -1,24 +1,28 @@
 from fastapi import APIRouter
 from models.student import Student
 
+from ml.predict import predict_career
+
+
 router = APIRouter()
 
 
 @router.post("/recommend")
 def recommend_career(student: Student):
 
-    if student.python_skill >= 8 and student.problem_solving >= 8:
-        career = "Data Scientist"
+    student_data = {
+        "Education": student.education,
+        "Specialization": student.specialization,
+        "Skills": student.skills,
+        "Certifications": student.certifications,
+        "CGPA": student.cgpa,
+        "Problem Solving": student.problem_solving,
+        "Communication": student.communication
+    }
 
-    elif student.java_skill >= 8 and student.problem_solving >= 8:
-        career = "Software Developer"
-
-    elif student.sql_skill >= 8:
-        career = "Data Analyst"
-
-    else:
-        career = "Software Developer"
+    career = predict_career(student_data)
 
     return {
+        "student": student.name,
         "recommended_career": career
     }
