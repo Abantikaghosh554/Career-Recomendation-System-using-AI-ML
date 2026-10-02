@@ -1,0 +1,260 @@
+.student-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at top left, #7c3aed 0%, transparent 35%),
+    radial-gradient(circle at bottom right, #4f46e5 0%, transparent 30%),
+    #0f1025;
+}
+
+.student-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.student-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.student-header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.student-header p {
+  margin: 0;
+  color: #c7c9e8;
+  font-size: 15px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section h2 {
+  margin: 0 0 18px;
+  color: #25264a;
+  font-size: 21px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
+  height: 46px;
+  padding: 0 42px 0 15px;
+
+  border: 1px solid #d9daf0;
+  border-radius: 12px;
+
+  background-color: #fafaff;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #6d5dfc 50%),
+    linear-gradient(135deg, #6d5dfc 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 19px,
+    calc(100% - 13px) 19px;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+
+  color: #292a48;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-group select:hover {
+  border-color: #9b91ff;
+  background-color: #f7f6ff;
+}
+
+.form-group select:focus {
+  border-color: #6d5dfc;
+  box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.12);
+  background-color: white;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #45466b;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d9daf0;
+  border-radius: 12px;
+  background: #fafaff;
+  color: #292a48;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6d5dfc;
+  box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.12);
+  background: white;
+}
+
+.skill-selector {
+  display: grid;
+  grid-template-columns: 1fr 180px auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.primary-small-btn,
+.add-skill-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 18px;
+  background: #6255e7;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-small-btn:hover,
+.add-skill-btn:hover {
+  background: #5145d0;
+  transform: translateY(-1px);
+}
+
+.skill-count {
+  margin: 12px 0;
+  color: #6b6d8c;
+  font-size: 13px;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid #e3e3f2;
+  border-radius: 12px;
+  background: #f8f8ff;
+}
+
+.skill-name {
+  color: #303151;
+  font-weight: 600;
+}
+
+.skill-rating {
+  color: #6255e7;
+  font-weight: 700;
+}
+
+.remove-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  background: #eeeef8;
+  color: #6255e7;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #e2e1f5;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6d5dfc, #8b5cf6);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(98, 85, 231, 0.3);
+}
+
+@media (max-width: 700px) {
+  .student-page {
+    padding: 25px 14px;
+  }
+
+  .form-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .student-header h1 {
+    font-size: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .skill-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-item {
+    flex-wrap: wrap;
+  }
+}
