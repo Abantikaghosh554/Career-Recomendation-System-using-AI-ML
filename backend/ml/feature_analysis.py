@@ -1,33 +1,27 @@
 import pandas as pd
 
+# Load the current career training dataset
+df = pd.read_csv("ml/career_training_data.csv")
 
-# Load dataset
-df = pd.read_excel("backend/ml/career_dataset_large.xlsx")
-
-
-# Remove duplicate rows
+# Remove duplicate rows for analysis
 df = df.drop_duplicates()
-
 
 # Handle missing certifications
 df["Certifications"] = df["Certifications"].fillna("No Certification")
 
-
-print("Dataset shape:")
+print("Dataset shape after preprocessing:")
 print(df.shape)
 
-# 1. Education Level vs Career
+# 1. Education vs Career
 
-print("\nEducation Level vs Recommended Career:")
+print("\nEducation vs Recommended Career:")
 
 education_career = pd.crosstab(
-    df["Education Level"],
+    df["Education"],
     df["Recommended Career"]
 )
 
 print(education_career)
-
-
 
 # 2. Specialization vs Career
 
@@ -40,10 +34,7 @@ specialization_career = pd.crosstab(
 
 print(specialization_career)
 
-
-
 # 3. Certification vs Career
-
 
 print("\nCertification vs Recommended Career:")
 
@@ -53,8 +44,6 @@ certification_career = pd.crosstab(
 )
 
 print(certification_career)
-
-
 
 # 4. Skill vs Career
 
@@ -70,9 +59,10 @@ skills = [
     "Machine Learning",
     "Marketing",
     "Python",
-    "SQL"
+    "SQL",
+    "Excel",
+    "Research"
 ]
-
 
 for skill in skills:
 
@@ -86,11 +76,8 @@ for skill in skills:
 
     print(f"\n{skill}:")
     print(
-        skill_data["Recommended Career"]
-        .value_counts()
+        skill_data["Recommended Career"].value_counts()
     )
-
-
 
 # 5. Average CGPA by Career
 
@@ -98,23 +85,52 @@ print("\nAverage CGPA by Career:")
 
 average_cgpa = df.groupby(
     "Recommended Career"
-)["CGPA/Percentage"].mean().sort_values(
+)["CGPA"].mean().sort_values(
     ascending=False
 )
 
 print(average_cgpa)
+
+# 6. Average Problem Solving by Career
+
+print("\nAverage Problem Solving by Career:")
+
+average_problem_solving = df.groupby(
+    "Recommended Career"
+)["Problem Solving"].mean().sort_values(
+    ascending=False
+)
+
+print(average_problem_solving)
+
+# 7. Average Communication by Career
+
+print("\nAverage Communication by Career:")
+
+average_communication = df.groupby(
+    "Recommended Career"
+)["Communication"].mean().sort_values(
+    ascending=False
+)
+
+print(average_communication)
 
 print("\nSample of complete records:")
 
 print(
     df[
         [
-            "Education Level",
+            "Education",
             "Specialization",
             "Skills",
             "Certifications",
-            "CGPA/Percentage",
+            "CGPA",
+            "Problem Solving",
+            "Communication",
             "Recommended Career"
         ]
-    ].sample(20, random_state=42).to_string(index=False)
+    ].sample(
+        min(20, len(df)),
+        random_state=42
+    ).to_string(index=False)
 )

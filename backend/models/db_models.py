@@ -8,14 +8,12 @@ class StudentDB(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100))
     education = Column(String(100))
+    specialization = Column(String(100))
+    skills = Column(String(500))
+    certifications = Column(String(200))
     cgpa = Column(Float)
-    java_skill = Column(Integer)
-    python_skill = Column(Integer)
-    sql_skill = Column(Integer)
     problem_solving = Column(Integer)
     communication = Column(Integer)
-    interest = Column(String(100))
-    experience = Column(String(100))
 
 
 class CareerDB(Base):

@@ -3,7 +3,7 @@ import random
 
 
 # Load career profiles
-df = pd.read_csv("career_profiles.csv")
+df = pd.read_csv("ml/career_profiles.csv")
 
 
 # Number of students to generate for each career
@@ -57,7 +57,7 @@ training_df = training_df.sample(
 
 # Save dataset
 training_df.to_csv(
-    "backend/ml/career_training_data.csv",
+    "ml/career_training_data.csv",
     index=False
 )
 

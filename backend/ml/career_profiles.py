@@ -126,7 +126,7 @@ print(df.shape)
 
 # Save dataset
 df.to_csv(
-    "career_profiles.csv",
+    "ml/career_profiles.csv",
     index=False
 )
 

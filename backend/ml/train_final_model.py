@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import joblib
-import os
 
 from sklearn.preprocessing import OneHotEncoder, MultiLabelBinarizer, LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -13,7 +12,7 @@ from sklearn.metrics import accuracy_score, classification_report
 # 1. Load training dataset
 # ============================================================
 
-df = pd.read_csv("backend/ml/career_training_data.csv")
+df = pd.read_csv("ml/career_training_data.csv")
 
 print("Dataset loaded successfully!")
 print("Dataset shape:", df.shape)
@@ -181,38 +180,24 @@ print(
 
 print("\nSaving model and encoders...")
 
-
-# Create paths inside backend/ml
-ml_folder = "backend/ml"
-
-os.makedirs(ml_folder, exist_ok=True)
-
-
-# Save Random Forest model
 joblib.dump(
     model,
-    os.path.join(ml_folder, "career_model.pkl")
+    "ml/career_model.pkl"
 )
 
-
-# Save categorical encoder
 joblib.dump(
     encoder,
-    os.path.join(ml_folder, "categorical_encoder.pkl")
+    "ml/categorical_encoder.pkl"
 )
 
-
-# Save skills encoder
 joblib.dump(
     mlb,
-    os.path.join(ml_folder, "skills_encoder.pkl")
+    "ml/skills_encoder.pkl"
 )
 
-
-# Save career label encoder
 joblib.dump(
     label_encoder,
-    os.path.join(ml_folder, "career_label_encoder.pkl")
+    "ml/career_label_encoder.pkl"
 )
 
 
